@@ -18,6 +18,8 @@ div, p, h1
 
 body {
     margin: 0;
+    max-width: 900px;
+    margin: auto;
 }
 
 nav {
