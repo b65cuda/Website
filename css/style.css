@@ -9,6 +9,9 @@ div, p, h1
 
 */
 
+/* Extra small devices (phones, 420px and down) */
+/* @media only screen and (max-width: 420px) {...} */
+
 * {
     box-sizing: border-box;
     font-family:Arial, Helvetica, sans-serif;
@@ -17,20 +20,18 @@ div, p, h1
 }
 
 body {
-    margin: 0;
-    max-width: 900px;
+    max-width: 1200px;
     margin: auto;
 }
 
 nav {
     background-color:saddlebrown;
-    padding: 14px 16px;
-    text-align:right;
+    padding: 14px 2px;
 }
 
 nav a {
     color: #f2f2f2;
-    padding: 14px 16px;
+    padding: 14px 8px;
     text-transform: uppercase;
 }
 
@@ -97,9 +98,33 @@ table, th, td {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+  .videowrap {
+    position: relative;
+    padding-bottom: 56.25%;/*16:9*/
+    height: 0;
+  }
+  .videowrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) {...} */
+/* Not Extra small devices (phones, 420px and up)  */
+@media only screen and (min-width: 420px) {
+  nav {
+    background-color:saddlebrown;
+    padding: 14px 16px;
+    text-align:right;
+  }
+
+  nav a {
+    color: #f2f2f2;
+    padding: 14px 16px;
+    text-transform: uppercase;
+  }
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 /* @media only screen and (min-width: 600px) {...} */
