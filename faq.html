@@ -16,62 +16,62 @@ https://b65cuda.github.io/Website/
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
+  <header>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="id.html">ID</a>
-            <a href="media.html">Media</a>
-            <a href="links.html">Links</a>
-            <a href="faq.html">FAQs</a>            
-        </nav>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="id.html">ID</a>
+      <a href="media.html">Media</a>
+      <a href="links.html">Links</a>
+      <a href="faq.html">FAQs</a>            
+    </nav>
 
-    </header>
+  </header>
+  
+  <main>
+
+    <h2>Frequently Asked Questions</h2>
+    <p>Answers to the most frequent questions can be found here. Feel free to contact us with any other questions you may have.</p>
+
+    <button class="accordion">I found a baby bird on the ground. What should I do?</button>
+    <div class="panel">
+      <p>Unless you know it is injured, leave it alone. If it is out in the open and you are worried about predators you can move it into a bush. If it is injured, contact your local Game and Fish.</p>
+    </div>
+
+    <button class="accordion">I took a bird in. What should I feed it?</button>
+    <div class="panel">
+      <p>You should not try to feed it. A very shallow dish of water is ok. Most birds are federally protected and you are breaking the law possessing it. Contact Game and Fish to turn it over.</p>
+    </div>
+
+    <button class="accordion">There is an owl in my yard. I'm afraid it will eat my chihuahua. What can I do?</button>
+    <div class="panel">
+      <p>Thank it if it does.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2021 Anthony Dickerson</p>
+    <p>Email: <a href="mailto:anthony.dickerson@sckans.edu">Anthony Dickerson</a></p>
+  </footer>
+
+  <!-- This script comes from https://www.w3schools.com/howto/howto_js_accordion.asp-->
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
     
-    <main>
-
-        <h2>Frequently Asked Questions</h2>
-        <p>Answers to the most frequent questions can be found here. Feel free to contact us with any other questions you may have.</p>
-        <button class="accordion">I found a baby bird on the ground. What should I do?</button>
-        <div class="panel">
-        <p>Unless you know it is injured, leave it alone. If it is out in the open and you are worried about predators you can move it into a bush. If it is injured, contact your local Game and Fish.</p>
-        </div>
-
-        <button class="accordion">I took a bird in. What should I feed it?</button>
-        <div class="panel">
-        <p>You should not try to feed it. A very shallow dish of water is ok. Most birds are federally protected and you are breaking the law possessing it. Contact Game and Fish to turn it over.</p>
-        </div>
-
-        <button class="accordion">There is an owl in my yard. I'm afraid it will eat my chihuahua. What can I do?</button>
-        <div class="panel">
-        <p>Thank it if it does.</p>
-        </div>
-
-
-    </main>
-
-    <footer>
-        <!-- <img src="footerlogo.png" alt=""> -->
-        <p>&copy; 2021 Anthony Dickerson</p>
-        <p>Email: <a href="mailto:anthony.dickerson@sckans.edu">Anthony Dickerson</a></p>
-    </footer>
-
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        
-        for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-              panel.style.maxHeight = null;
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            } 
-          });
-        }
-        </script>
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+  </script>
     
 </body>
 </html>
