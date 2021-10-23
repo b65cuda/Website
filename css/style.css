@@ -10,7 +10,7 @@ Extra small devices (phones, 420px and down)
     text-decoration: none;
     text-align: center;
 }
-body {
+main {
     max-width: 1200px;
     margin: auto;
 }
