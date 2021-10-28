@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      
+  
+<!-- #
+Response for discussion board post for SCKANS SMGT341
+Student: Joshua Crowley
+Last Updated: 27 Oct
+Description: This is a really quick creation for a Form that I found and modified from company7.com 
+I take no credit for their work, and merely used it as a template in which I edited and made it my own
+http://www.company7.com/library/C7_upscalc.html
+This will in no ways follow propper layout and CSS as it is a really quick response website.
+-->
+
+<meta charset="utf-8">
+      <title>Crowley's Response</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="mystyle.css">
+  </head>
+
+
+<script language="JavaScript">
+
+// CED subroutine for cleaning up JavaScript rounding errors 
+// to any reasonable number of decimal places 5/5/1997 last mod 2/19/2004
+// round for decimal of (value of precision) places, default is 3
+// This routine can be used to pass a number and a number for precision
+// or just a number only, that is to be rounded to a set number of decimal
+// places. This routine supports leading and training zeros, leading and
+// trailing spaces, and padding. To prevent errors, pass variables as a string.
+
+function perRound(num, precision) {
+  var precision = 3;
+  precision = parseInt(precision); 
+  var result1 = num * Math.pow(10, precision);
+  var result2 = Math.round(result1);
+  var result3 = result2 / Math.pow(10, precision);
+  return zerosPad(result3, precision);
+}
+
+function zerosPad(rndVal, decPlaces) {
+  var valStrg = rndVal.toString(); // Convert the number to a string
+  var decLoc = valStrg.indexOf("."); // Locate the decimal point
+  // check for a decimal 
+  if (decLoc == -1) {
+      decPartLen = 0; // If no decimal, then all decimal places will be padded with 0s
+      // If decPlaces is greater than zero, add a decimal point
+      valStrg += decPlaces > 0 ? "." : "";
+  }
+  else {
+      decPartLen = valStrg.length - decLoc - 1; // If there is a decimal already, only the needed decimal places will be padded with 0s
+  }
+   var totalPad = decPlaces - decPartLen;    // Calculate the number of decimal places that need to be padded with 0s
+  if (totalPad > 0) {
+      // Pad the string with 0s
+      for (var cntrVal = 1; cntrVal <= totalPad; cntrVal++) 
+          valStrg += 0;
+      }
+  return valStrg;
+}
+// send the value in as "num" in a variable
+
+// clears field of default value
+function clear_field(field) {
+      if (field.value==field.defaultValue) {
+          field.value=''
+      }
+  }
+
+function calcWatts(form) {
+
+var v=parseFloat(upscalc.v.value);
+var monitor=parseFloat(upscalc.monitor.value);
+var cpu=parseFloat(upscalc.cpu.value);
+var printer=parseFloat(upscalc.printer.value);
+
+upscalc.minsize.value=Math.round((v * cpu) + (v * monitor) + (v * printer));
+
+}
+
+function calcAmps(form) {
+
+var optime=parseFloat(acalc.optime.value);
+var inverteff=parseFloat(acalc.inverteff.value);
+var battv=parseFloat(acalc.battv.value);
+var battamp=parseFloat(acalc.battamp.value);
+var watt1=parseFloat(acalc.watt1.value);
+var watt2=parseFloat(acalc.watt2.value);
+var watt3=parseFloat(acalc.watt3.value);
+
+acalc.ampUPS.value=Math.round(((watt1+watt2+watt3)*(optime*0.0165))/(inverteff*battv*battamp));
+//Math.round((inverteff * battv * battamp)/((watt1 + watt2 + watt3) * (optime * 0.0165)));
+
+}
+
+</script>
+
+
+<div class="container">
+  <section><h1>Week 5 Response</h1></section>
+
+<section>
+
+<form name="upscalc">
+<table border="1" bgcolor="#FBFBEF" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="4" align="center"><b>AC Power (Mains) Line Voltage</b></td>
+</tr>
+<tr>
+<td colspan="2">System Voltage Requirement</td>
+<td colspan="2"><input type="text" name="v" size="8" value="120"> volts (all devices)</td>
+</tr>
+<tr>
+<td colspan="4" align="center"><b>Power Load Values of Required Critical Components</b></td>
+</tr>
+<tr>
+<td colspan="2" align="center">Device</td>
+<td colspan="2" align="center">Load in Watts</td>
+</tr>
+<tr>
+<td colspan="2">Monitor</td>
+<td align="center"><input type="text" name="monitor" size="8" value="0" onfocus="clear_field(this)"> amps</td>
+</tr>
+<tr>
+<td colspan="2">CPU</td>
+<td align="center"><input type="text" name="cpu" size="8" value="0" onfocus="clear_field(this)"> amps</td>
+</tr>
+<tr>
+<td colspan="2">Printer</td>
+<td align="center"><input type="text" name="printer" size="8" value="0" onfocus="clear_field(this)"> amps</td>
+</tr>
+<tr>
+<td colspan="4" align="center"><input type="button" value="Calculate Results" onclick="calcWatts(upscalc)"> <input type="Reset" value="Clear Values" ></td>
+</tr>
+<tr>
+<td colspan="4" align="center"><b>Calculated Results</b></td>
+</tr>
+<tr>
+<td colspan="2">Minimum UPS Capability</td>
+<td align="center"><input type="text" name="minsize" size="8" readonly="readonly"> Watts</td>
+</tr>
+</tbody>
+</table>
+</form>
+</section>
+
+<section><p>
+
+System 1: 240 + (360 * 2) = <strong>960 Watts</strong><br>
+Monitor: 2 amps - 2 * 120 = 240 Watts<br>
+CPU: 3 amps - 3 * 120 = 360 Watts<br>
+printer: 3 amps - 3 * 120 = 360 Watts<br>
+<br>
+System 2: (360 * 2) + 480 = <strong>1,200 Watts</strong><br>
+Monitor: 3 amps - 3 * 120 = 360 Watts<br>
+CPU: 4 amps - 4 * 120 = 480 Watts<br>
+printer: 3 amps - 3 * 120 = 360 Watts<br>
+  <br>
+System 3: (480 * 2) + 360 =<strong>1,320 Watts</strong><br>
+Monitor: 3 amps - 3 * 120 = 360 Watts<br>
+CPU: 4 amps - 4 * 120 = 480 Watts<br>
+printer: 4amps - 4 * 120 = 480 Watts<br>
+</p></section>
+
+<section>
+
+<form name="acalc">
+<table border="1" bgcolor="#FBFBEF" cellpadding="2" cellspacing="0">
+<tbody>
+<tr>
+<td colspan="4" align="center"><b>Calculating AMP Hours</b></td>
+</tr>
+<tr>
+<td colspan="2">Desired Run Time</td>
+<td colspan="2"><input type="text" name="optime" size="8" value="15"> Desired Time in Minutes</td>
+</tr>
+<tr>
+<td colspan="2">Inverter Efficiency</td>
+<td colspan="2"><input type="text" name="inverteff" size="8" value=".90"> Values in Decimals</td>
+</tr>
+<tr>
+<td colspan="2">Battery Voltage</td>
+<td colspan="2"><input type="text" name="battv" size="8" value="12"> Voltage of the Battery</td>
+</tr>
+<tr>
+<td colspan="2">Battery Amp Hour</td>
+<td colspan="2"><input type="text" name="battamp" size="8" value="12.5"> Default 12.5</td>
+</tr>
+<tr>
+<td colspan="4" align="center"><b>Power Load Values of Required Systems</b></td>
+</tr>
+<tr>
+<td colspan="2" align="center">Systems</td>
+<td colspan="2" align="center">Load in Watts</td>
+</tr>
+<tr>
+<td colspan="2">System 1</td>
+<td align="center"><input type="text" name="watt1" size="8" value="0" onfocus="clear_field(this)"> watts</td>
+</tr>
+<tr>
+<td colspan="2">System 2</td>
+<td align="center"><input type="text" name="watt2" size="8" value="0" onfocus="clear_field(this)"> watts</td>
+</tr>
+<tr>
+<td colspan="2">System 3</td>
+<td align="center"><input type="text" name="watt3" size="8" value="0" onfocus="clear_field(this)"> watts</td>
+</tr>
+<tr>
+<td colspan="4" align="center"><input type="button" value="Calculate Results" onclick="calcAmps(acalc)"> <input type="Reset" value="Clear Values"></td>
+</tr>
+<tr>
+<td colspan="4" align="center"><b>Calculated Results</b></td>
+</tr>
+<tr>
+<td colspan="2">Minimum UPS Amp Hours</td>
+<td align="center"><input type="text" name="ampUPS" size="8" readonly="readonly"> Hours Rating</td>
+</tr>
+</tbody>
+</table>
+</form>
+</section>
+
+
+
+</div>
+
+<div class ="fixed">
+  Joshua Crowley<br>
+  SMGT 341<br>
+  Week 5 Response Form
+  </div>
+
+
+</body>
+</html>
