@@ -85,12 +85,11 @@ function calcAmps(form) {
 var optime=parseFloat(acalc.optime.value);
 var inverteff=parseFloat(acalc.inverteff.value);
 var battv=parseFloat(acalc.battv.value);
-var battamp=parseFloat(acalc.battamp.value);
 var watt1=parseFloat(acalc.watt1.value);
 var watt2=parseFloat(acalc.watt2.value);
 var watt3=parseFloat(acalc.watt3.value);
 
-acalc.ampUPS.value=Math.round(((watt1+watt2+watt3)*(optime*0.0165))/(inverteff*battv*battamp));
+acalc.ampUPS.value=Math.round(((watt1+watt2+watt3)*(optime*0.0165))/(inverteff*battv));
 //Math.round((inverteff * battv * battamp)/((watt1 + watt2 + watt3) * (optime * 0.0165)));
 
 }
@@ -184,10 +183,6 @@ printer: 4amps - 4 * 120 = 480 Watts<br>
 <tr>
 <td colspan="2">Battery Voltage</td>
 <td colspan="2"><input type="text" name="battv" size="8" value="12"> Voltage of the Battery</td>
-</tr>
-<tr>
-<td colspan="2">Battery Amp Hour</td>
-<td colspan="2"><input type="text" name="battamp" size="8" value="12.5"> Default 12.5</td>
 </tr>
 <tr>
 <td colspan="4" align="center"><b>Power Load Values of Required Systems</b></td>
