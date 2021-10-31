@@ -10,86 +10,91 @@ style.css for https://b65cuda.github.io/Website/ */
   font-family:Arial, Helvetica, sans-serif;
   text-decoration: none;
   text-align: center;
+  color: #13458B;
 }
-img {
-  width:100%;
-}
-main {
-  max-width: 1200px;
-  margin: auto;
-  text-align: left;
-}
+img {width:100%;}
+ul {padding-inline-start: 0px;}
+li {list-style-type: none;}
 /*HEADER AREA*/
 header {
   width: 100%;
-  background-color:saddlebrown;
-  text-align: right;   
+  border-bottom: 1px solid saddlebrown;
 }
 /*Hamburger Menu Toggle*/
 header label { 
   display: inline-block;
-  color: white;
+  color: saddlebrown;
   font-style: normal;
   font-size: 1.2em;
   padding: 14px 20px;
-
 }
 header input {display:none;}
 nav { display: none; }
 header input:checked ~ nav { display: block; } 
-
 /*Navigation Menu*/
 nav {
-  background-color:saddlebrown;
   padding: 14px 8px;
 }
 nav a {
-  color: white;
+  color: saddlebrown;
   padding: 14px 8px;
   text-transform: uppercase;
   box-sizing: border-box;
   display: block;
   width: 100%;
-  border-top: 1px solid white;
+  border-top: 1px solid saddlebrown;
+  border-bottom: 1px solid saddlebrown;
 }
 nav a:hover {
-  background-color: burlywood;
+  border-top: 2px solid blanchedalmond;
   color: black;
 }
 @media screen and (min-width: 480px){
   header label, header input { display: none; }
   nav { 
     display: block;
-    text-align: right;
   }
   nav a {
     display: inline-block;
     width: auto;
     border-top: none;
+    border-bottom: none;
+  }
+}
+/*MAIN AREA*/
+main {
+  max-width: 1200px;
+  margin: auto;  
+}
+main a {color: #8B1345; text-decoration: underline;}
+main a:hover {color: #13458B;}
+@media  screen and (min-width:835px) {
+  section {
+    display:inline-block;
+    width:45%;
+    padding: 5px 20px;
   }
 }
 /*FOOTER AREA*/
 footer {
-  background-color: saddlebrown;
+  border-top: 1px solid saddlebrown;
+  margin-top: 20px;  
 }
 footer a {
-  color:white;
+  color:saddlebrown;
 }
 footer a:hover{
-  color:darkgreen;
+  color: black;
 }
 footer p {
-  color:#f2f2f2;
-  padding: 14px 16px;
-  margin: 0;
+  color:saddlebrown;
 }
-
 /*SECTION 2 - PAGE SPECIFIC*/
 /* ../index.html */
 
 /* ../id.html */
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid #555;
   border-collapse: collapse;
 }
 /* ../media.html */
@@ -108,27 +113,13 @@ borrowed from https://css-tricks.com/fluid-width-video/ */
   height: 100%;
 }
 /* ../links.html */
-section {
-  display:inline-block;
-  /* max-width:420px; */
-  padding: 5px 20px;
-  text-align: left;
-}
-li {
-  list-style-type: none;
-  text-align: left;
-}
-@media  screen and (min-width:835px) {
-  main {
-    text-align: center;
-  }
-}
+
 /* ../faq.html */
   /*This accordion/panel section is what creates the FAQ show/hide
   borrowed from https://www.w3schools.com/howto/howto_js_accordion.asp */
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: blanchedalmond;
+  color: black;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -139,11 +130,12 @@ li {
   transition: 0.4s;
 }  
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: saddlebrown;
+  color: white;
 }  
 .accordion:after {
   content: '\002B';
-  color: #777;
+  color: black;
   font-weight: bold;
   float: right;
   margin-left: 5px;
@@ -158,4 +150,3 @@ li {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
-

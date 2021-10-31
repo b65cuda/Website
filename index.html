@@ -9,13 +9,16 @@ Changed: Oct 2, 21 - Added my base html template and included comments
 Changed: Oct 6, 21 - Added a couple of about me <p> including links and two photos
 Changed: Oct 20, 21 - Added id,media,links,FAQ pages started working on CSS
 Changed: Oct 22, 21 - Added responsive CSS to make everything mobile friendly
+Changed: Oct 30, 21 - Moved about info from index.html to about.html
+                    - Added content to index and link pages 
+                      and completed css for column responsiveness
 -->
 <html lang="en">
 <head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wildlife Education - Home</title>
+    <title>CSCI 434 Mastery</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,13 +39,27 @@ Changed: Oct 22, 21 - Added responsive CSS to make everything mobile friendly
     
     <main>
 
-        <h1>Wildlife Education</h1>
+        <h1>CSCI 434 Mastery Assignment</h1>
+        <p>This site highlights various course objectives. All pages share the same header and footer. 
+            The header navigation is a drop down on smaller devices and horizontal links on larger devices.
+            A strong emphasis was placed on keeping things simple, writing easy to understand, clean code,
+            and ensuring a responsive layout natively without using any frameworks.</p>
 
+        <h2>ID page</h2>
+        <p>The ID page features a table with name, description, and photo of select southwestern birds of prey.</p>
+        <h2>Media page</h2>
+        <p>The Media page features text and embedded video. Of note, is that the video will resize down to the smallest device. This is not normally possible with the default YouTube embed script.</p>
+        <h2>Links page</h2>
+        <p>The links page features a two column layout on larger devices and a single column on smaller devices. This was achieved with media queries.</p>
+        <h2>FAQs page</h2>
+        <p>The FAQ page features an accordion style drop down with some javascript.</p>
+        <h2>About page</h2>
+        <p>The about page is the original assignment page with text, links, and photos.</p>
 
     </main>
 
     <footer>
-        <p>&copy; 2021 Anthony Dickerson</p>
+        <p>&copy; 2021</p>
         <p>Email: <a href="mailto:anthony.dickerson@sckans.edu">Anthony Dickerson</a></p>
     </footer>
     
