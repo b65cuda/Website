@@ -150,3 +150,11 @@ borrowed from https://css-tricks.com/fluid-width-video/ */
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+@media (prefers-color-scheme: dark) {
+body {
+  background-color: black;
+}
+nav a:hover, footer a:hover {
+  color: white;
+}
+}
