@@ -17,6 +17,7 @@ img {
 main {
   max-width: 1200px;
   margin: auto;
+  text-align: left;
 }
 /*HEADER AREA*/
 header {
@@ -107,7 +108,21 @@ borrowed from https://css-tricks.com/fluid-width-video/ */
   height: 100%;
 }
 /* ../links.html */
-
+section {
+  display:inline-block;
+  /* max-width:420px; */
+  padding: 5px 20px;
+  text-align: left;
+}
+li {
+  list-style-type: none;
+  text-align: left;
+}
+@media  screen and (min-width:835px) {
+  main {
+    text-align: center;
+  }
+}
 /* ../faq.html */
   /*This accordion/panel section is what creates the FAQ show/hide
   borrowed from https://www.w3schools.com/howto/howto_js_accordion.asp */
