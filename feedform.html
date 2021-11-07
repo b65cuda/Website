@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeding Calculator</title>
+    <style>
+        body{
+            width:auto;
+            margin:auto;
+            }
+            
+    </style>
+</head>
+<body>
+
+<form>
+    <fieldset>
+        <legend>Condition</legend>
+        <p><label for="name">Name/ID Number:</label>
+        <input type="text" id="name" name="name"></p>
+        <p><label for="date">Date:</label>
+        <input type="date" id="date" name="date"></p>
+        <p><label for="species">Species:</label>
+        <input list="species" name="species">
+        <datalist id="species">
+            <option value="RTHA">
+            <option value="AMKE">
+            <option value="BANO">
+            <option value="GHOW">
+        </datalist></p>
+        <p><label for="weight">Weight(g):</label>
+        <input type="number" onChange="calculate()" id="weight" name="weight" autofocus></p>
+        <label for="energyConst">Energy Constant (K):</label>
+        <input type="number" onChange="calculate()" id="energyConst" name="energyConst" value="78">
+        <ul>
+            <li>Passerine birds: 129</li>
+            <li>Non passerines: 78</li>
+            <li>Placental mammals: 70</li>
+            <li>Marsupials: 49</li>
+            <li>Reptiles: 10</li>
+        </ul>
+        <label for="energyFactor">Energy Factor:</label>
+        <input type="number" onChange="calculate()" id="energyFactor" name="energyFactor" value="1.0">
+        <ul>
+            <li>Starvation: 0.2-0.7</li>
+            <li>Hypometabolism: 0.5-0.9</li>
+            <li>Elective surgery: 1.0-1.2</li>
+            <li>Mild trauma: 1.0-1.2</li>
+            <li>Severe trauma: 1.1-2.0</li>
+            <li>Growth: 1.5-3.0</li>
+            <li>Sepsis: 1.2-1.5</li>
+            <li>Burns: 1.2-2.0</li>
+        </ul>
+
+    </fieldset>
+
+    <Fieldset>
+        <legend>Calculated Daily Requirements (kcal)</legend>
+        <p>Basal Metobolic Rate: <span id="bmr"></span></p>
+        <p>Maint Energy Requirement: <span id="mer"></span></p>
+        <p>Calculated Daily Requirement: <span id="calDailyReq"></span></p>
+        <fieldset>
+            <legend>Feeding Estimates</legend>
+            <label for="foodcal">Food (kcal/ml):</label>
+            <input type="number" onChange="calculate()" id="foodcal" name="foodcal" value="2.00">
+            <p>Daily Volume: <span id="volDaily"></span></p>
+
+            <p>Max 40ml/kg: <span id="max40"></span></p>
+            <p> Number of feedings required: <span id="numFeed40"></span> x <span id="perFeed40"></span></p>
+            <p>Max 5% BW: <span id="max5"></span></p>
+            <p> Number of feedings required: <span id="numFeed5"></span> x <span id="perFeed5"></span></p>
+        </fieldset>
+
+
+
+
+
+    </Fieldset>
+
+
+
+    
+</form>
+
+<script type="text/javascript">
+    function calculate() {
+        var wt = document.getElementById("weight").value;
+        var ec = document.getElementById("energyConst").value;
+        var ef = document.getElementById("energyFactor").value;
+        var fc = document.getElementById("foodcal").value;
+        var bmr = ec * ((wt / 1000) ** 0.75);
+        var mer = 1.5 * bmr
+        var cdr = ef * mer;
+        var mf4 = 40 * wt / 1000;
+        var mf5 = 0.05 * wt;
+        var mlday = cdr / fc;
+        var nf4 = Math.ceil(mlday / mf4);
+        var pf4 = mlday / nf4;
+        var nf5 = Math.ceil(mlday / mf5);
+        var pf5 = mlday / nf5;
+
+        document.getElementById("bmr").innerHTML = bmr.toFixed(2) + " kcal/day";
+        document.getElementById("mer").innerHTML = mer.toFixed(2) + " kcal/day";
+        document.getElementById("calDailyReq").innerHTML = cdr.toFixed(2) + " kcal/day";
+        document.getElementById("max40").innerHTML = mf4.toFixed(2) + "ml";
+        document.getElementById("max5").innerHTML = mf5.toFixed(2) + "ml";
+        document.getElementById("volDaily").innerHTML = mlday.toFixed(2) + "ml";
+        document.getElementById("numFeed40").innerHTML = nf4;
+        document.getElementById("perFeed40").innerHTML = pf4.toFixed(2) + "ml";
+        document.getElementById("numFeed5").innerHTML = nf5;
+        document.getElementById("perFeed5").innerHTML = pf5.toFixed(2) + "ml";
+        
+    }
+</script>
+
+</body>
+</html>
